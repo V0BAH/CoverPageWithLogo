@@ -1,0 +1,135 @@
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+h1 {
+    color: #eee;
+    padding-left: 20px;
+    width: 100%;
+    font-size: 35px;
+    text-align: center;
+}
+
+h2 {
+    color: #eee;
+}
+
+.addy {
+    padding-left: 10px;
+}
+
+.name {
+    padding-right: 10%;
+}
+
+.icon-credit {
+  position: fixed;
+  bottom: 5px;
+  width: 100%;
+  text-align: center;
+  font-size: 11px;
+}
+
+.loader {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background: rgb(19, 17, 17);
+  background-image: radial-gradient(circle at center center, rgba(33,33,33,0),rgb(33,33,33)),repeating-linear-gradient(135deg, rgb(33,33,33) 0px, rgb(33,33,33) 1px,transparent 1px, transparent 4px),repeating-linear-gradient(45deg, rgb(56,56,56) 0px, rgb(56,56,56) 5px,transparent 5px, transparent 6px),linear-gradient(90deg, rgb(33,33,33),rgb(33,33,33));
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  
+  &::before,
+  &::after {
+    content: '';
+    position: absolute;
+    border-radius: 50%;
+    animation: tracks 10s linear forwards;
+
+  }
+  
+  &::before {
+    width: 265px;
+    height: 265px;
+    border: 11px solid rgba(0,0,0,0);
+  }
+
+  &::after {
+    width: 95px;
+    height: 95px;
+    border: 8px solid rgba(0,0,0,0);
+  }
+}
+
+.car {
+    align-content: center;
+    padding-left: 150px;
+  position: relative;
+  z-index: 1;
+  transform-origin: bottom bottom;
+  animation: drift 3.2s linear infinite;
+  
+  &::before,
+  &::after {
+    content: '';
+    position: absolute;
+    top: 20px;
+    border-radius: 50%;
+  }
+
+  &::before {
+    background: #eee;
+    animation: smoke 1s linear infinite;
+  }  
+
+  &::after {
+    background: #eee;
+    animation: smoke 1s linear .7s infinite;
+  }
+}
+
+svg {
+  top: 10px;
+  position: relative;
+  width: 100px;
+  padding: 0 0 100px;
+  z-index: 1;
+}
+
+@keyframes smoke {
+  from {
+    left: 65px;
+    width: 10px;
+    height: 30px;
+    opacity: 0.5;
+  }
+  to {
+    left: -10px;
+    width: 100px;
+    height: 40px;
+    opacity: 0;
+  }
+}
+
+@keyframes drift {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes tracks {
+  from {
+    border-color: rgba(0, 0, 0, 0.548);
+  }
+  to {
+    border-color: rgba(0,0,0, 0.548);
+  }
+}
